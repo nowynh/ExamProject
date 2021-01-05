@@ -20,8 +20,6 @@ public class NavigatePage extends BasePage {
     private WebElement aboutUsPageButton;
     @FindBy(css = "h1[class='entry-title']")
     private WebElement pageTitle;
-    @FindBy(css = "h1.page-title")
-    private WebElement homePageTitle;
 
 
     public void goToMyAccountSubpage() {

@@ -10,7 +10,6 @@ import java.util.Random;
 public class LoginPage extends BasePage {
 
     public LoginPage(WebDriver driver) {
-
         super(driver);
     }
 
@@ -59,7 +58,6 @@ public class LoginPage extends BasePage {
     }
 
     public void loginUser(String userName, String password) {
-
         username.sendKeys(userName);
         pass.sendKeys(password);
         logIn.sendKeys(Keys.ENTER);
@@ -68,7 +66,6 @@ public class LoginPage extends BasePage {
     public void logOutUser() {
         logOutButton.click();
     }
-
 
     public boolean userLoggedCorrect() {
         String expectedText = accountMessageDisplay.getText();
