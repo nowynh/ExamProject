@@ -32,7 +32,9 @@ public class NavigatePage extends BasePage {
         checkoutPageButton.click();
     }
 
-    public void goToCartSubpage() {  cartPageButton.click();   }
+    public void goToCartSubpage() {
+        cartPageButton.click();
+    }
 
     public void goToAboutUsSubpage() {
         aboutUsPageButton.click();
@@ -41,37 +43,23 @@ public class NavigatePage extends BasePage {
 
     public boolean myAccountSubpage() {
         String expectedText = pageTitle.getText();
-        boolean alertTextCorrect = expectedText.equals
+        boolean myAccountTextCorrect = expectedText.equals
                 ("My account");
-        return alertTextCorrect;
+        return myAccountTextCorrect;
     }
 
-    public boolean checkoutSubpage() {
+    public boolean checkoutAndCartSubpage() {
         String expectedText = pageTitle.getText();
-        boolean alertTextCorrect = expectedText.contains("Cart");
-        return alertTextCorrect;
-
-    }
-
-    public boolean cartSubpage() {
-        String expectedText = pageTitle.getText();
-        boolean alertTextCorrect = expectedText.contains("Cart");
-        return alertTextCorrect;
+        boolean cartTextCorrect = expectedText.contains("Cart");
+        return cartTextCorrect;
 
     }
 
     public boolean aboutUsSubpage() {
         String expectedText = pageTitle.getText();
-        boolean alertTextCorrect = expectedText.equals
+        boolean aboutUstTextCorrect = expectedText.equals
                 ("About us");
-        return alertTextCorrect;
-    }
-
-    public boolean homePageSubpage() {
-        String expectedText = homePageTitle.getText();
-        boolean alertTextCorrect = expectedText.equals
-                ("Shop");
-        return alertTextCorrect;
+        return aboutUstTextCorrect;
     }
 
 }

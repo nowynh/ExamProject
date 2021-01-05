@@ -9,7 +9,7 @@ public class UpdateAddressTests extends BaseTests {
 
 
     @Test
-    public void updateFullAdress() {
+    public void updateFullAddress() {
         LoginPage loginPage = new LoginPage(driver);
         loginPage.goTo();
         loginPage.goTo().loginUser("lukn15@interia.pl", "5432!Qazxcv");

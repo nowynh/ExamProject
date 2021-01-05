@@ -17,14 +17,14 @@ public class NavigatePageTests extends BaseTests {
     public void shouldRedirectToCheckoutSubpage() {
         NavigatePage navigatePage = new NavigatePage(driver);
         navigatePage.goToCheckoutSubpage();
-        Assertions.assertTrue(navigatePage.checkoutSubpage(), "Title 'Checkout' subpage is not correct");
+        Assertions.assertTrue(navigatePage.checkoutAndCartSubpage(), "Title 'Checkout' subpage is not correct");
     }
 
     @Test
     public void shouldRedirectToCartSubpage() {
         NavigatePage navigatePage = new NavigatePage(driver);
         navigatePage.goToCartSubpage();
-        Assertions.assertTrue(navigatePage.cartSubpage(), "Title 'Cart' subpage is not correct");
+        Assertions.assertTrue(navigatePage.checkoutAndCartSubpage(), "Title 'Cart' subpage is not correct");
     }
 
     @Test
