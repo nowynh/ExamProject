@@ -4,7 +4,6 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import pageobjects.CategoryPage;
 
-
 public class CategoryPageTests extends BaseTests {
 
     @Test
@@ -41,6 +40,5 @@ public class CategoryPageTests extends BaseTests {
         categoryPage.goToUncategorized();
         Assertions.assertTrue(categoryPage.shouldFilteredToCategoryUncategorized(), "Category is not correct");
     }
-
 
 }

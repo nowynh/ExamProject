@@ -5,8 +5,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class CategoryPage extends BasePage {
-
-
     public CategoryPage(WebDriver driver) {
         super(driver);
     }
@@ -21,10 +19,8 @@ public class CategoryPage extends BasePage {
     private WebElement silverBars;
     @FindBy(css = "a[href*='/silver-coins/']")
     private WebElement silverCoins;
-
     @FindBy(css = "a[href*='/uncategorized/']")
     private WebElement uncategorized;
-
 
     public void goToGoldBars() {
         goldBars.click();
@@ -48,39 +44,27 @@ public class CategoryPage extends BasePage {
 
     public boolean shouldFilteredToCategoryGoldBars() {
         String expectedText = homePageTitle.getText();
-        boolean alertTextCorrect = expectedText.equals
-                ("Gold Bars");
-        return alertTextCorrect;
+        return expectedText.equals("Gold Bars");
     }
 
     public boolean shouldFilteredToCategoryGoldenCoins() {
         String expectedText = homePageTitle.getText();
-        boolean alertTextCorrect = expectedText.equals
-                ("Gold Coins");
-        return alertTextCorrect;
+        return expectedText.equals("Gold Coins");
     }
 
     public boolean shouldFilteredToCategorySilverBars() {
         String expectedText = homePageTitle.getText();
-        boolean alertTextCorrect = expectedText.equals
-                ("Silver Bars");
-        return alertTextCorrect;
+        return expectedText.equals("Silver Bars");
     }
 
     public boolean shouldFilteredToCategorySilverCoins() {
         String expectedText = homePageTitle.getText();
-        boolean alertTextCorrect = expectedText.equals
-                ("Silver Coins");
-        return alertTextCorrect;
+        return expectedText.equals("Silver Coins");
     }
 
     public boolean shouldFilteredToCategoryUncategorized() {
         String expectedText = homePageTitle.getText();
-        boolean alertTextCorrect = expectedText.equals
-                ("Uncategorized");
-        return alertTextCorrect;
+        return expectedText.equals("Uncategorized");
     }
-
-
 }
 

@@ -7,7 +7,6 @@ import pageobjects.UpdateAddressPage;
 
 public class UpdateAddressTests extends BaseTests {
 
-
     @Test
     public void updateFullAddress() {
         LoginPage loginPage = new LoginPage(driver);
@@ -15,7 +14,7 @@ public class UpdateAddressTests extends BaseTests {
         loginPage.goTo().loginUser("lukn15@interia.pl", "5432!Qazxcv");
         UpdateAddressPage updateAddressPage = new UpdateAddressPage(driver);
         updateAddressPage.updateAddress("Zmieniona", "31-560", "Zmienna");
-        Assertions.assertTrue(updateAddressPage.updateAddressIsCorrect(), "The message after saving your changes is not correct");
+        Assertions.assertTrue(updateAddressPage.isUpdateAddressIsCorrect(), "The message after saving your changes is not correct");
     }
 
     @Test
@@ -25,8 +24,6 @@ public class UpdateAddressTests extends BaseTests {
         loginPage.goTo().loginUser("lukn15@interia.pl", "5432!Qazxcv");
         UpdateAddressPage updateAddressPage = new UpdateAddressPage(driver);
         updateAddressPage.updateZipCode("31-599");
-        Assertions.assertTrue(updateAddressPage.updateAddressIsCorrect(), "The message after saving your changes is not correct");
+        Assertions.assertTrue(updateAddressPage.isUpdateAddressIsCorrect(), "The message after saving your changes is not correct");
     }
-
-
 }

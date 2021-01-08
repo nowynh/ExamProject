@@ -8,7 +8,7 @@ public class LoginTests extends BaseTests {
 
 
     @Test
-    void loginWithCorrectEmailAndPassword() {
+    public void loginWithCorrectEmailAndPassword() {
         LoginPage loginPage = new LoginPage(driver);
         loginPage.goTo().loginUser("lukn15@interia.pl", "5432!Qazxcv");
         Assertions.assertTrue(loginPage.userLoggedCorrect(), "Your account page does not contain correct name");

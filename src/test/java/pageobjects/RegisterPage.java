@@ -33,22 +33,16 @@ public class RegisterPage extends BasePage {
 
     public boolean myAccountPageIsCorrect() {
         String expectedText = pageTitle.getText();
-        boolean alertTextCorrect = expectedText.equals
-                ("My account");
-        return alertTextCorrect;
+        return expectedText.equals("My account");
     }
 
     public boolean emailAddressIsNotProvidedAlert() {
         String expectedText = messageAlert.getText();
-        boolean alertTextCorrect = expectedText.equals
-                ("Error: Please provide a valid email address.");
-        return alertTextCorrect;
+        return expectedText.equals("Error: Please provide a valid email address.");
     }
 
     public boolean existingEmailAddressAlert() {
         String expectedText = messageAlert.getText();
-        boolean alertTextCorrect = expectedText.equals
-                ("Error: An account is already registered with your email address. Please log in.");
-        return alertTextCorrect;
+        return expectedText.equals("Error: An account is already registered with your email address. Please log in.");
     }
 }

@@ -9,9 +9,8 @@ import java.util.Random;
 
 public class LoginPage extends BasePage {
 
-    public LoginPage(WebDriver driver) {
-        super(driver);
-    }
+    private final String lostPasswordDisplayed = "Lost your password?";
+    private final String loggedUserName = "kot";
 
     @FindBy(id = "username")
     private WebElement username;
@@ -32,21 +31,21 @@ public class LoginPage extends BasePage {
     @FindBy(css = "ul.woocommerce-error")
     private WebElement alertMessage;
     @FindBy(css = "button[name='register']")
-    private  WebElement registerButton;
+    private WebElement registerButton;
     @FindBy(css = "ul.nav-menu a[href*='/my-account/']")
-    private  WebElement myAccount;
+    private WebElement myAccount;
     @FindBy(css = "div.woocommerce-MyAccount-content")
-    private   WebElement accountMessageDisplay;
+    private WebElement accountMessageDisplay;
     @FindBy(css = "p a[href*='/my-account/customer-logout']")
-    private  WebElement logOutButton;
+    private WebElement logOutButton;
 
-
-    private final String lostPasswordDisplayed = "Lost your password?";
-    private final String loggedUserName = "kot";
+    public LoginPage(WebDriver driver) {
+        super(driver);
+    }
 
     public LoginPage goTo() {
         myAccount.click();
-        return new LoginPage(driver);
+        return new LoginPage(getDriver());
     }
 
     public RegisterPage goToRegisterPage(String email) {
@@ -54,7 +53,7 @@ public class LoginPage extends BasePage {
         String newEmail = "randomEmail" + random.nextInt(100000) + email;
         reg_email.sendKeys(newEmail);
         System.out.println(newEmail);
-        return new RegisterPage(driver);
+        return new RegisterPage(getDriver());
     }
 
     public void loginUser(String userName, String password) {
@@ -69,37 +68,27 @@ public class LoginPage extends BasePage {
 
     public boolean userLoggedCorrect() {
         String expectedText = accountMessageDisplay.getText();
-        boolean loggingCorrect = expectedText.contains(loggedUserName);
-        return loggingCorrect;
+        return expectedText.contains(loggedUserName);
     }
-
 
     public boolean incorrectPasswordAlert() {
         String expectedText = alertMessage.getText();
-        boolean alertTextCorrect = expectedText.equals
-                ("Error: The password you entered for the email address lukn15@interia.pl is incorrect. Lost your password?");
-        return alertTextCorrect;
+        return expectedText.equals("Error: The password you entered for the email address lukn15@interia.pl is incorrect. Lost your password?");
     }
 
     public boolean emptyPasswordFieldAlert() {
         String expectedText = alertMessage.getText();
-        boolean alertTextCorrect = expectedText.equals
-                ("Error: The password field is empty.");
-        return alertTextCorrect;
+        return expectedText.equals("Error: The password field is empty.");
     }
 
     public boolean usernameFieldRequiredAlert() {
         String expectedText = alertMessage.getText();
-        boolean alertTextCorrect = expectedText.equals
-                ("Error: Username is required.");
-        return alertTextCorrect;
+        return expectedText.equals("Error: Username is required.");
     }
 
     public boolean userLogOutCorrect() {
         String expectedText = lostPassword.getText();
-        boolean logoutCorrect = expectedText.contains(lostPasswordDisplayed);
-        return logoutCorrect;
+        return expectedText.contains(lostPasswordDisplayed);
     }
-
 
 }

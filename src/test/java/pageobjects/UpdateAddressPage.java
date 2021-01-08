@@ -45,10 +45,9 @@ public class UpdateAddressPage extends BasePage {
         saveChangedButton.click();
     }
 
-    public boolean updateAddressIsCorrect() {
+    public boolean isUpdateAddressIsCorrect() {
         String expectedText = messageAlert.getText();
-        boolean alertTextCorrect = expectedText.equals
-                ("Address changed successfully.");
-        return alertTextCorrect;
+        return expectedText.equals("Address changed successfully.");
+
     }
 }

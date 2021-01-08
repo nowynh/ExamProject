@@ -11,8 +11,8 @@ import java.util.concurrent.TimeUnit;
 
 public class BaseTests {
 
-    static WebDriver driver;
-    static WebDriverWait wait;
+    protected WebDriver driver;
+    protected WebDriverWait wait;
 
     @BeforeEach
     public void setUp() {
@@ -24,10 +24,8 @@ public class BaseTests {
         driver.navigate().to("http://34.94.151.29/");
     }
 
-
     @AfterEach
     public void driverQuit() {
         driver.quit();
     }
-
 }

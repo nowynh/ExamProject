@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class SearchPage extends BasePage {
@@ -13,15 +14,12 @@ public class SearchPage extends BasePage {
     }
 
     @FindBy(css = "input[id='woocommerce-product-search-field-0']")
-    private  WebElement inputField;
-
+    private WebElement inputField;
     @FindBy(css = "p[class='woocommerce-info']")
     private WebElement resultSearchMessage;
-
     @FindBy(css = "a h2[class='woocommerce-loop-product__title']")
     private List<WebElement> foundProducts;
-    private String headerOfProduct;
-
+    private List<String> headerOfProduct = new ArrayList<>();
     private String searchingProduct = "";
 
     public void searchProducts(String searchingProduct) {
@@ -29,20 +27,21 @@ public class SearchPage extends BasePage {
         inputField.sendKeys(Keys.ENTER);
     }
 
-    public boolean foundedProduct() {
-        for (WebElement elements : foundProducts) {
-            headerOfProduct = elements.getText();
+    public boolean ifFoundedProduct(String searchingProduct) {
+        for (WebElement element : foundProducts) {
+            headerOfProduct.add(element.getText());
         }
-        boolean searchResultCorrect = headerOfProduct.contains("");
-        return searchResultCorrect;
+
+        for (String foundedPhrases : headerOfProduct) {
+            if (foundedPhrases.contains(searchingProduct)) {
+                return true;
+            }
+        }
+        return false;
     }
 
-    public boolean productNotFounded() {
+    public boolean isProductNotFounded() {
         String expectedText = resultSearchMessage.getText();
-        boolean alertTextCorrect = expectedText.equals
-                ("No products were found matching your selection.");
-                return alertTextCorrect;
+        return expectedText.equals("No products were found matching your selection.");
     }
-
-
 }

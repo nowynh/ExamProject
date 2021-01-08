@@ -21,7 +21,6 @@ public class NavigatePage extends BasePage {
     @FindBy(css = "h1[class='entry-title']")
     private WebElement pageTitle;
 
-
     public void goToMyAccountSubpage() {
         myAccountButton.click();
     }
@@ -38,26 +37,19 @@ public class NavigatePage extends BasePage {
         aboutUsPageButton.click();
     }
 
-
     public boolean myAccountSubpage() {
         String expectedText = pageTitle.getText();
-        boolean myAccountTextCorrect = expectedText.equals
-                ("My account");
-        return myAccountTextCorrect;
+        return expectedText.equals("My account");
     }
 
     public boolean checkoutAndCartSubpage() {
         String expectedText = pageTitle.getText();
-        boolean cartTextCorrect = expectedText.contains("Cart");
-        return cartTextCorrect;
-
+        return expectedText.equals("Cart");
     }
 
     public boolean aboutUsSubpage() {
         String expectedText = pageTitle.getText();
-        boolean aboutUstTextCorrect = expectedText.equals
-                ("About us");
-        return aboutUstTextCorrect;
+        return expectedText.equals("About us");
     }
 
 }
